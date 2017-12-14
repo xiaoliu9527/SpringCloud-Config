@@ -1,0 +1,46 @@
+spring:
+  profiles:
+    active: dev
+  application:
+      name: pay-manage-service
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3307/payManage?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+  # redis
+  redis:
+    database: 0
+    host: 127.0.0.1
+    port: 6379
+    timeout: 0
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+
+
+
+# 更多数据源
+custom:
+  datasource:
+    names: pub
+    pub:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3307/pay-pub?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+      username: root
+      password: root
+
+mybatis:
+  type-aliases-package: com.pay.entity
+  mapper-locations: classpath:mapper/*.xml
+# 日中配置
+logging:
+  config: classpath:spring-logback.xml
+#
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:9527/eureka/

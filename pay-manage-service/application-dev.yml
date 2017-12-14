@@ -1,0 +1,4 @@
+#端口路径配置
+server:
+  port: 9091
+  context-path: /pay-manage-service
